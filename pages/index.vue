@@ -18,10 +18,12 @@ export default {
       fetchPost: []
     };
   },
-  created() {},
-  asyncData(context, callback) {
-    callback(null, {
-      fetchPost: [
+  created() {
+    this.$store.dispatch('setPost', this.fetchPost);
+  },
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      context.store.dispatch('setPost',  [
         {
           id: 1,
           title: "Tolga YILDIZ'ın postu",
@@ -43,7 +45,10 @@ export default {
           text: "Fok balıklarının yalnız falan değil aq benden çok arkadaşı var.",
           author: "Oğuzhan KIDIK"
         }
-      ]
+      ]);
+      resolve();  
+    }).catch(e => {
+      context.error(e);
     });
   }
 };
