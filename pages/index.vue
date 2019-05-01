@@ -13,44 +13,22 @@ export default {
     PostList,
     About
   },
-  data() {
-    return {
-      fetchPost: []
-    };
+  computed: {
+    fetchPost() {
+      return this.$store.getters.getPosts;
+    }
   },
   created() {
-    this.$store.dispatch('setPost', this.fetchPost);
+    //this.$store.dispatch('setPost', this.fetchPost);
   },
-  asyncData(context) {
-    return new Promise((resolve, reject) => {
-      context.store.dispatch('setPost',  [
-        {
-          id: 1,
-          title: "Tolga YILDIZ'ın postu",
-          subTitle: "Fok balıkları çok yalnız",
-          text: "Fok balıklarının yalnız oluşu beni çok üzmektedir.",
-          author: "Tolga YILDIZ"
-        },
-        {
-          id: 2,
-          title: "Orhan ÖKSÜZ'ün postu",
-          subTitle: "Fok balıkları çok yalnızsa bizene",
-          text: "Fok balıklarının yalnız oluşu beni çok üzmemektedir.",
-          author: "Orhan ÖKSÜZ"
-        },
-        {
-          id: 3,
-          title: "Oğuzhan KIDIK'ın postu",
-          subTitle: "Fok balıkları çok yalnız yalanı",
-          text: "Fok balıklarının yalnız falan değil aq benden çok arkadaşı var.",
-          author: "Oğuzhan KIDIK"
-        }
-      ]);
-      resolve();  
-    }).catch(e => {
-      context.error(e);
-    });
-  }
+  // fetch(context) {
+  //   return new Promise((resolve, reject) => {
+  //     context.store.dispatch("setPost");
+  //     resolve();
+  //   }).catch(e => {
+  //     context.error(e);
+  //   });
+  // }
 };
 </script>
 
