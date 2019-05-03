@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import PostForm from '@/components/admin/PostForm';
 export default {
     components: {
@@ -10,7 +11,10 @@ export default {
     },
     methods: {
         savePost(post) {
-            console.log(post);
+            axios.post("https://kose-yazisi-nux-js.firebaseio.com/post.json", post).then(result => {
+                console.log(result);
+                this.$router.push('/admin');
+            })
         }
     }
 }
