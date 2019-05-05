@@ -1,6 +1,6 @@
 # NuxtKoseYazisi
 
-> My outstanding Nuxt.js project
+> A simple blog that I developed to get to know NuxtJs
 
 ## Build Setup
 
