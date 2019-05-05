@@ -30,17 +30,37 @@ export default {
     '~/assets/css/bootstrap.min.css'
   ],
 
+  /**
+   * Development Mode
+   */
+
+  //dev:false,
+
+  /**
+   * Envoiment
+  */
+  
+  env: {
+    baseURL : "https://kose-yazisi-nux-js.firebaseio.com/"
+  },
+
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "~/plugins/components.js"
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    "@nuxtjs/axios",
   ],
+
+  axios: {
+    //Axios özellikleri burada belirtilebilir.
+  },
 
   /*
   ** Build configuration

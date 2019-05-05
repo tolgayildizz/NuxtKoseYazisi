@@ -11,10 +11,9 @@ export default {
     },
     methods: {
         savePost(post) {
-            axios.post("https://kose-yazisi-nux-js.firebaseio.com/post.json", post).then(result => {
-                console.log(result);
+            this.$store.dispatch('addPost', post).then(response => {
                 this.$router.push('/admin');
-            })
+            });
         }
     }
 }
